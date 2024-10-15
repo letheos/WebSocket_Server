@@ -1,12 +1,10 @@
 package fr.uphf.Questease.Model;
 
 import jakarta.annotation.Nullable;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "Resultat")
 public class Resultat {
 
     @Id

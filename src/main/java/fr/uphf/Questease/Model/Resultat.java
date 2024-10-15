@@ -1,44 +1,38 @@
 package fr.uphf.Questease.Model;
 
 import jakarta.annotation.Nullable;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Resultat {
 
     @Id
     @GeneratedValue
-    private Long id;
+    @Column(name = "idPartie")
+    private Long idPartie;
 
-    @Column(nullable = false)
+    @Column(name = "isEpreuve1",nullable = false)
     private boolean isEpreuve1;
 
-    @Column(nullable = false)
+
+    @Column(name = "isEpreuve2",nullable = false)
     private boolean isEpreuve2;
 
-    @Column(nullable = false)
+    @Column(name = "isEpreuve3",nullable = false)
     private boolean isEpreuve3;
 
-    @Column(nullable = false)
+    @Column(name = "isEpreuve4",nullable = false)
     private boolean isEpreuve4;
 
-    @Column(nullable = false)
+    @Column(name = "isEpreuve5",nullable = false)
     private boolean isTresor;
 
-    @Column(nullable = false)
-    private int idPartie;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idUtilisateur", referencedColumnName = "idUtilisateur")
+    private Utilisateur utilisateur;
 
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public boolean isEpreuve1() {
         return isEpreuve1;
@@ -80,11 +74,5 @@ public class Resultat {
         isTresor = tresor;
     }
 
-    public int getIdPartie() {
-        return idPartie;
-    }
 
-    public void setIdPartie(int idPartie) {
-        this.idPartie = idPartie;
-    }
 }

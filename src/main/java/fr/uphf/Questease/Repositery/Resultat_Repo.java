@@ -5,7 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;
 
-public interface class Resultat_Repo extends CrudRepository<Resultat, Long> {
+public abstract  class Resultat_Repo implements CrudRepository<Resultat, Long> {
     @Override
     public Optional<Resultat> findById(Long aLong) {
         return Optional.empty();

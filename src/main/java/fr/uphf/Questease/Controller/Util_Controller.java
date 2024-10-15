@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping
-public class SecuInfo_Controller {
-    @GetMapping("/SecuInfo")
+public class Util_Controller {
+    @GetMapping("/Utilisateur")
     public @ResponseBody String hello(
             @RequestParam(value="name", defaultValue = "world") String name
     ) {

@@ -2,6 +2,9 @@ package fr.uphf.Questease.Model;
 
 import jakarta.persistence.*;
 
+
+import java.util.Set;
+
 @Entity
 @Table(name = "Utilisateur")
 public class Utilisateur {
@@ -10,11 +13,18 @@ public class Utilisateur {
     @GeneratedValue
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String nom;
 
     @Column(nullable = false)
     private int Xp;
+
+    @OneToOne(mappedBy = "InfoSecu", cascade = CascadeType.ALL)
+    private InfoSecu inf;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idUtilisateur", referencedColumnName = "idUtilisateur")
+    private Set<Resultat> resultat;
 
 
     public Long getId() {

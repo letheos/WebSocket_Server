@@ -4,16 +4,16 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "infoSecu")
-public class Info_Secu {
+public class InfoSecu {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "mdp", nullable = false)
     private String mdp;
 
-    @Column(nullable = false)
+    @Column(name = "email", nullable = false)
     private String email;
 
 

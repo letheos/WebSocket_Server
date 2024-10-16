@@ -1,0 +1,73 @@
+CREATE TABLE TABLE_CHOSE
+(
+    choseATrouverPrixJust SERIAL PRIMARY KEY,
+    nom                   TEXT    NOT NULL UNIQUE,
+    prix                  INTEGER NOT NULL,
+    pathToPicture         TEXT    NOT NULL
+);
+
+CREATE TABLE Indice
+(
+    idIndice SERIAL PRIMARY KEY,
+    indice   TEXT NOT NULL
+);
+
+CREATE TABLE ChoseATrouverPrixJust
+(
+    idChoseATrouver SERIAL PRIMARY KEY,
+    nom             TEXT    NOT NULL UNIQUE,
+    prix            INTEGER NOT NULL,
+    pathToPicture   TEXT    NOT NULL
+);
+
+CREATE TABLE Son
+(
+    idSon     SERIAL PRIMARY KEY,
+    cheminSon TEXT NOT NULL,
+    idIndice  INT  NOT NULL,
+    FOREIGN KEY (idIndice) REFERENCES Indice (idIndice)
+);
+
+CREATE TABLE MotPendu
+(
+    idMotPendu SERIAL PRIMARY KEY,
+    mot        TEXT NOT NULL,
+    idIndice   INT  NOT NULL,
+    FOREIGN KEY (idIndice) REFERENCES Indice (idIndice)
+);
+
+CREATE TABLE MotCryptex
+(
+    idMotCryptex SERIAL PRIMARY KEY,
+    mot          TEXT NOT NULL,
+    idIndice     INT  NOT NULL,
+    FOREIGN KEY (idIndice) REFERENCES Indice (idIndice)
+);
+
+CREATE TABLE Utilisateur
+(
+    idUtilisateur SERIAL PRIMARY KEY,
+    pseudoUser    TEXT    NOT NULL UNIQUE,
+    xp            INTEGER NOT NULL
+);
+
+CREATE TABLE Resultat
+(
+    idPartie      SERIAL PRIMARY KEY,
+    idUtilisateur INTEGER NOT NULL,
+    IsTresor      BOOLEAN NOT NULL,
+    IsEreuve1     BOOLEAN NOT NULL,
+    IsEreuve2     BOOLEAN NOT NULL,
+    IsEreuve3     BOOLEAN NOT NULL,
+    IsEreuve4     BOOLEAN NOT NULL,
+    FOREIGN KEY (idUtilisateur) REFERENCES Utilisateur (idUtilisateur)
+);
+
+CREATE TABLE InfoSecu
+(
+    idInfoSecu    SERIAL PRIMARY KEY,
+    idUtilisateur INTEGER NOT NULL,
+    psswrd        TEXT    NOT NULL,
+    email         TEXT    NOT NULL UNIQUE,
+    FOREIGN KEY (idUtilisateur) REFERENCES Utilisateur (idUtilisateur)
+);

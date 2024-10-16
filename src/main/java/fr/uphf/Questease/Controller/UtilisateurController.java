@@ -1,18 +1,18 @@
 package fr.uphf.Questease.Controller;
 
 import fr.uphf.Questease.Model.Utilisateur;
-import fr.uphf.Questease.Repositery.UtilRepository;
+import fr.uphf.Questease.Repository.UtililisateurRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("")
-public class Util_Controller {
+public class UtilisateurController {
 
-    private final UtilRepository UtilRepository;
+    private final UtililisateurRepository UtilRepository;
 
-    public Util_Controller(fr.uphf.Questease.Repositery.UtilRepository utilRepository) {
-        UtilRepository = utilRepository;
+    public UtilisateurController(UtililisateurRepository utililisateurRepository) {
+        UtilRepository = utililisateurRepository;
     }
 
     @GetMapping("/{idUtil}")

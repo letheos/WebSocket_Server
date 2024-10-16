@@ -1,12 +1,13 @@
-package fr.uphf.Questease.Repositery;
+package fr.uphf.Questease.Repository;
 
 import fr.uphf.Questease.Model.Resultat;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;
 
-public interface Resultat_Repo extends CrudRepository<Resultat, Long> {
+public interface InfoSecuRepository extends CrudRepository<Resultat, Long> {
 
-    @Override
+    @Query("")
     public Optional<Resultat> findById(Long aLong);
 }

@@ -1,8 +1,6 @@
 package fr.uphf.Questease.Model;
 
 import jakarta.persistence.*;
-
-
 import java.util.Set;
 
 @Entity

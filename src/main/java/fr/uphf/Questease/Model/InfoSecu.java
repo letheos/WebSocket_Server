@@ -10,12 +10,13 @@ public class InfoSecu {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "mdp", nullable = false)
+    @Column(name = "psswrd", nullable = false)
     private String mdp;
 
     @Column(name = "email", nullable = false)
     private String email;
 
+    //TODO OneToOne à faire
 
     public Long getId() {
         return id;

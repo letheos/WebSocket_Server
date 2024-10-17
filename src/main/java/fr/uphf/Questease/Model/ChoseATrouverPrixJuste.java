@@ -13,10 +13,10 @@ public class ChoseATrouverPrixJuste {
     @Column(name = "nom", nullable = false)
     private String nom;
 
-    @Column(name = "cheminImage", nullable = false)
+    @Column(name = "pathtopicture", nullable = false)
     private String cheminImage;
 
-    @Column(name = "valeur", nullable = false)
+    @Column(name = "prix", nullable = false)
     private int valeur;
 
     public ChoseATrouverPrixJuste() {}

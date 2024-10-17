@@ -12,59 +12,49 @@ public class Resultat {
     @Column(name = "idPartie")
     private Long idPartie;
 
-    @Column(name = "isEpreuve1",nullable = false)
-    private boolean isEpreuve1;
-
-
-    @Column(name = "isEpreuve2",nullable = false)
-    private boolean isEpreuve2;
-
-    @Column(name = "isEpreuve3",nullable = false)
-    private boolean isEpreuve3;
-
-    @Column(name = "isEpreuve4",nullable = false)
-    private boolean isEpreuve4;
-
-    @Column(name = "isEpreuve5",nullable = false)
+    @Column(name = "isTresor", nullable = false)
     private boolean isTresor;
+
+
+    @Column(name = "isCryptex", nullable = false)
+    private boolean isCryptex;
+
+    @Column(name = "isPendu", nullable = false)
+    private boolean isPendu;
+
+    @Column(name = "isSon", nullable = false)
+    private boolean isSon;
+
+    @Column(name = "isprixjuste", nullable = false)
+    private boolean isprixjuste;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idUtilisateur", referencedColumnName = "idUtilisateur")
     private Utilisateur utilisateur;
 
 
-
-
-    public boolean isEpreuve1() {
-        return isEpreuve1;
+    public Long getIdPartie() {
+        return idPartie;
     }
 
-    public void setEpreuve1(boolean epreuve1) {
-        isEpreuve1 = epreuve1;
+    public boolean isCryptex() {
+        return isCryptex;
     }
 
-    public boolean isEpreuve2() {
-        return isEpreuve2;
+    public boolean isPendu() {
+        return isPendu;
     }
 
-    public void setEpreuve2(boolean epreuve2) {
-        isEpreuve2 = epreuve2;
+    public boolean isSon() {
+        return isSon;
     }
 
-    public boolean isEpreuve3() {
-        return isEpreuve3;
+    public boolean isIsprixjuste() {
+        return isprixjuste;
     }
 
-    public void setEpreuve3(boolean epreuve3) {
-        isEpreuve3 = epreuve3;
-    }
-
-    public boolean isEpreuve4() {
-        return isEpreuve4;
-    }
-
-    public void setEpreuve4(boolean epreuve4) {
-        isEpreuve4 = epreuve4;
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
     }
 
     public boolean isTresor() {

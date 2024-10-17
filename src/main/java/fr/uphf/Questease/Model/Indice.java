@@ -11,7 +11,7 @@ public class Indice {
     @Column(name = "idIndice")
     private int id;
 
-    @Column(name = "hint",unique=true)
+    @Column(name = "indice",unique=true)
     private String hint;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "owner", cascade = CascadeType.ALL)

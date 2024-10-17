@@ -16,8 +16,8 @@ public class UtilisateurController {
     }
 
     @GetMapping("/{idUtil}")
-    public ResponseEntity<Iterable<Utilisateur>> getUtilisateurById(@PathVariable int idUtil){
-        return ResponseEntity.ok(UtilRepository.findUtilByName(idUtil));
+    public ResponseEntity<Iterable<Utilisateur>> getUtilisateurById(@PathVariable String nameUtil){
+        return ResponseEntity.ok(UtilRepository.findUtilByName(nameUtil));
     }
 
     //Post, Update et Delete à faire

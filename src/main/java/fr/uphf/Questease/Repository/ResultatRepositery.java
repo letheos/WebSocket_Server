@@ -4,10 +4,12 @@ import fr.uphf.Questease.Model.Resultat;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public interface ResultatRepositery extends CrudRepository<Resultat, Long> {
 
     @Query("SELECT COUNT(IsEpreuve1), COUNT(IsEpreuve2), COUNT(IsEpreuve3), COUNT(IsEpreuve4) " +

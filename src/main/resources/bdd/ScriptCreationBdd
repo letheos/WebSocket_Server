@@ -1,23 +1,15 @@
-CREATE TABLE TABLE_CHOSE
-(
-    choseATrouverPrixJust SERIAL PRIMARY KEY,
-    nom                   TEXT    NOT NULL UNIQUE,
-    prix                  INTEGER NOT NULL,
-    pathToPicture         TEXT    NOT NULL
-);
-
 CREATE TABLE Indice
 (
     idIndice SERIAL PRIMARY KEY,
     indice   TEXT NOT NULL
 );
 
-CREATE TABLE ChoseATrouverPrixJust
+create table choseatrouverprixjust
 (
-    idChoseATrouver SERIAL PRIMARY KEY,
-    nom             TEXT    NOT NULL UNIQUE,
-    prix            INTEGER NOT NULL,
-    pathToPicture   TEXT    NOT NULL
+    idchoseatrouver serialprimary key,
+    nom             text    not null unique,
+    prix            integer not null,
+    pathtopicture   text    not null
 );
 
 CREATE TABLE Son
@@ -51,16 +43,17 @@ CREATE TABLE Utilisateur
     xp            INTEGER NOT NULL
 );
 
-CREATE TABLE Resultat
+create table resultat
 (
-    idPartie      SERIAL PRIMARY KEY,
-    idUtilisateur INTEGER NOT NULL,
-    IsTresor      BOOLEAN NOT NULL,
-    IsEreuve1     BOOLEAN NOT NULL,
-    IsEreuve2     BOOLEAN NOT NULL,
-    IsEreuve3     BOOLEAN NOT NULL,
-    IsEreuve4     BOOLEAN NOT NULL,
-    FOREIGN KEY (idUtilisateur) REFERENCES Utilisateur (idUtilisateur)
+    idpartie      serial
+        primary key,
+    idutilisateur integer not null
+        references utilisateur,
+    istresor      boolean not null,
+    iscryptex     boolean not null,
+    ispendu       boolean not null,
+    isson         boolean not null,
+    isprixjuste   boolean not null
 );
 
 CREATE TABLE InfoSecu

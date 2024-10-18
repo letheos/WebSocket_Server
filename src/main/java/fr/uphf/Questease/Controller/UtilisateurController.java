@@ -16,11 +16,24 @@ public class UtilisateurController {
     }
 
     @GetMapping("/{idUtil}")
-    public ResponseEntity<Iterable<Utilisateur>> getUtilisateurById(@PathVariable String nameUtil){
+    public ResponseEntity<Iterable<Utilisateur>> getUserByName(@PathVariable String nameUtil){
         return ResponseEntity.ok(UtilRepository.findUtilByName(nameUtil));
     }
 
-    //Post, Update et Delete à faire
+    @PostMapping("/{idUtil}")
+    public void PostUser(@PathVariable Utilisateur Util){
+        UtilRepository.save(Util);
+    }
 
+    @PatchMapping("/{idUtil}")
+    public void UpdateUser(Long IdUser, @PathVariable Utilisateur Util){
+        UtilRepository.deleteById(IdUser);
+        UtilRepository.save(Util);
+    }
+
+    @DeleteMapping("/{idUtil}")
+    public void DeleteUser(@PathVariable Utilisateur Util){
+        UtilRepository.delete(Util);
+    }
 
 }

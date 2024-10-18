@@ -5,6 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface motPenduRepository extends CrudRepository<Utilisateur, Long> {
+public interface MotPenduRepository extends CrudRepository<Utilisateur, Long> {
 
 }

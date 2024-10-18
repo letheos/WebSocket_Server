@@ -13,7 +13,7 @@ import java.util.Optional;
 public interface ResultatRepositery extends CrudRepository<Resultat, Long> {
 
     @Query("SELECT COUNT(IsEpreuve1), COUNT(IsEpreuve2), COUNT(IsEpreuve3), COUNT(IsEpreuve4) " +
-            "WHERE pseudoUser = :Username GROUPBY IdUser")
+            "WHERE pseudoUser = :Username GROUP BY IdUser")
     public List<Resultat> findResultByUsername(@Param("pseudoUser") String Username);
 
     @Query("INSERT INTO Result(IsTresor, IsEpreuve1, IsEpreuve2, IsEpreuve3, IsEpreuve4, idPartie)" +

@@ -2,7 +2,7 @@ package fr.uphf.Questease.Controller;
 
 
 import fr.uphf.Questease.Model.MotPendu;
-import fr.uphf.Questease.Repository.motPenduRepository;
+import fr.uphf.Questease.Repository.MotPenduRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -11,9 +11,9 @@ import java.util.Optional;
 @RequestMapping
 public class motPenduController {
 
-    private final motPenduRepository repo;
+    private final MotPenduRepository repo;
 
-    public motPenduController(motPenduRepository repo) {
+    public motPenduController(MotPenduRepository repo) {
         this.repo = repo;
     }
 

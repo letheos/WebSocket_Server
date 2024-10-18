@@ -1,7 +1,7 @@
 package fr.uphf.Questease.Controller;
 
 import fr.uphf.Questease.Model.ChoseATrouverPrixJuste;
-import fr.uphf.Questease.Repository.choseATrouverPrixJusteRepository;
+import fr.uphf.Questease.Repository.ChoseATrouverPrixJusteRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,9 +11,9 @@ import java.util.Optional;
 @RequestMapping("")
 public class ChoseATrouverPrixJusteController {
 
-    private final choseATrouverPrixJusteRepository repo;
+    private final ChoseATrouverPrixJusteRepository repo;
 
-    public ChoseATrouverPrixJusteController(choseATrouverPrixJusteRepository repo) {
+    public ChoseATrouverPrixJusteController(ChoseATrouverPrixJusteRepository repo) {
         this.repo = repo;
     }
 

@@ -1,7 +1,7 @@
 package fr.uphf.Questease.Controller;
 
 import fr.uphf.Questease.Model.Utilisateur;
-import fr.uphf.Questease.Repository.UtililisateurRepository;
+import fr.uphf.Questease.Repository.UtilisateurRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("")
 public class UtilisateurController {
 
-    private final UtililisateurRepository UtilRepository;
+    private final UtilisateurRepository UtilRepository;
 
-    public UtilisateurController(UtililisateurRepository utililisateurRepository) {
+    public UtilisateurController(UtilisateurRepository utililisateurRepository) {
         UtilRepository = utililisateurRepository;
     }
 

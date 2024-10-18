@@ -5,6 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface motCryptexRepository extends CrudRepository<MotCryptex, Long> {
+public interface MotCryptexRepository extends CrudRepository<MotCryptex, Long> {
 
 }

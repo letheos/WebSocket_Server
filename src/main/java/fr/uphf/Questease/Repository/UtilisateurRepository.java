@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UtililisateurRepository extends CrudRepository<Utilisateur, Long> {
+public interface UtilisateurRepository extends CrudRepository<Utilisateur, Long> {
 
     @Query("SELECT * FROM UTILISATEUR WHERE pseudoUser = :name")
     Iterable<Utilisateur> findUtilByName(@Param("pseudoUser") String name);

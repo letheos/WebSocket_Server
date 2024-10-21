@@ -9,8 +9,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UtilisateurRepository extends CrudRepository<Utilisateur, Long> {
 
-    @Query("SELECT * FROM UTILISATEUR WHERE pseudoUser = :name")
-    Iterable<Utilisateur> findUtilByName(@Param("pseudoUser") String name);
-
+    @Query("SELECT u FROM Utilisateur u WHERE u.nom = :pseudoUser")
+    Iterable<Utilisateur> findUtilByName(@Param("pseudoUser") String pseudoUser);
 
 }

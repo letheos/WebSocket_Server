@@ -8,27 +8,27 @@ import java.util.List;
 public class Indice {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "idIndice")
+    @Column(name = "idindice")
     private int id;
 
-    @Column(name = "indice",unique=true)
-    private String hint;
+    @Column(name = "indice",unique=true, nullable=false)
+    private String indice;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "owner", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "indice", cascade = CascadeType.ALL)
     private List<MotCryptex> motCryptexList;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "owner", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "indice", cascade = CascadeType.ALL)
     private List<MotCryptex> motPenduList;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "owner", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "indice", cascade = CascadeType.ALL)
     private List<MotCryptex> sonList;
 
 
     public Indice() {}
 
-    public Indice(int id, String hint) {
+    public Indice(int id, String indice) {
         this.id = id;
-        this.hint = hint;
+        this.indice = indice;
     }
 
     public int getId() {
@@ -36,6 +36,6 @@ public class Indice {
     }
 
     public String getHint() {
-        return hint;
+        return indice;
     }
 }

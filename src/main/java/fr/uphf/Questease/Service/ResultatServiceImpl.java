@@ -1,14 +1,14 @@
 package fr.uphf.Questease.Service;
 
 import fr.uphf.Questease.Model.Resultat;
-import fr.uphf.Questease.Repository.ResultatRepositery;
+import fr.uphf.Questease.Repository.ResultatRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class ResultatServiceImpl implements ResultatSerice{
-    private ResultatRepositery repo;
+public class ResultatServiceImpl implements ResultatService {
+    private ResultatRepository repo;
 
     @Override
     public Resultat SaveResultat(Resultat resultat) {

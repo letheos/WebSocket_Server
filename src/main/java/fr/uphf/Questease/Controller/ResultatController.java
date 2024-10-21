@@ -17,7 +17,7 @@ public class ResultatController {
         this.repo = repo;
     }
 
-
+    /*
     @GetMapping("/{idPartie}")
     public Optional<Resultat> getResultatByIdpartie(@PathVariable Long idpartie) {
         return repo.findById(idpartie);
@@ -38,4 +38,6 @@ public class ResultatController {
     public void DeleteResultat(@PathVariable Resultat R) {
         repo.delete(R);
     }
+
+     */
 }

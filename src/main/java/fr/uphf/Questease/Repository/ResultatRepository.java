@@ -1,6 +1,8 @@
 package fr.uphf.Questease.Repository;
 
 import fr.uphf.Questease.Model.Resultat;
+import jakarta.transaction.Transactional;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -11,11 +13,9 @@ import java.util.List;
 @Repository
 public interface ResultatRepository extends CrudRepository<Resultat, Long> {
 
-    @Query("SELECT COUNT(IsEpreuve1), COUNT(IsEpreuve2), COUNT(IsEpreuve3), COUNT(IsEpreuve4) " +
-            "WHERE pseudoUser = :Username GROUP BY IdUser")
-    public List<Resultat> findResultByUsername(@Param("pseudoUser") String Username);
+    @Query("SELECT COUNT(r.isPendu) as nbrPendu, COUNT(r.isCryptex) as nbrCryptex, COUNT(r.isprixjuste) nbrPrixJuste, COUNT(r.isSon) as nbrSon " +
+            "FROM Resultat r WHERE r.utilisateur.nom = :pseudoUser GROUP BY r.utilisateur.id")
+    List<Object[]> findResultByUsername(@Param("pseudoUser") String pseudoUser);
 
-    @Query("INSERT INTO Result(IsTresor, IsEpreuve1, IsEpreuve2, IsEpreuve3, IsEpreuve4, idPartie)" +
-            "VALUES(:IT, :IE1, :IE2, :IE3, :IE4, :IP")
-    public void addResultByUser(boolean IT, boolean IE1, boolean IE2, boolean IE3, boolean IE4, boolean IP);
+
 }

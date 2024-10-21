@@ -17,6 +17,6 @@ public class MotCryptex {
     private int diff;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idIndice")
-    private Indice Indice;
+    @JoinColumn(name = "idindice", referencedColumnName = "idindice")
+    private Indice indice;
 }

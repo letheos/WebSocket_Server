@@ -4,7 +4,7 @@ import fr.uphf.Questease.Model.Resultat;
 
 import java.util.List;
 
-public interface ResultatSerice {
+public interface ResultatService {
     Resultat SaveResultat(Resultat resultat);
 
     List<Resultat> FetchResultatList();

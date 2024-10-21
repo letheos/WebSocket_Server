@@ -64,3 +64,56 @@ CREATE TABLE InfoSecu
     email         TEXT    NOT NULL UNIQUE,
     FOREIGN KEY (idUtilisateur) REFERENCES Utilisateur (idUtilisateur)
 );
+
+
+INSERT INTO Indice (idIndice, Indice) VALUES
+(0, "UnIndiceSon")
+(1, "UnIndiceSon")
+(3, "UnIndiceSon")
+
+(4, "UnIndicePendu")
+(5, "UnIndicePendu")
+(6, "UnIndicePendu")
+
+(7, "UnIndiceCryptex")
+(8, "UnIndiceCryptex")
+(9, "UnIndiceCryptex")
+
+INSERT INTO choseatrouverprixjust (idchoseatrouver, nom, prix, pathtopicture) VALUES
+(0, "Voiture", 2500, "A/Path/To/Somewhere")
+(1, "Grille-Pain", 40, "A/Path/To/Somewhere/Else")
+(2, "Bouteille d'eau", 1, "A/Path/Elsewhere")
+
+INSERT INTO Son (idSon, cheminSon, idIndice) VALUES
+(0, "A/Path/To/Somewhere", 0)
+(1, "A/Path/To/Somewhere/Else", 1)
+(2, "A/Path/Elsewhere", 2)
+
+INSERT INTO MotPendu (idMotPendu, mot, idIndice) VALUES
+(0, "Oui", 4)
+(1, "Oui", 5)
+(2, "Oui", 6)
+
+INSERT INTO MotCryptex (idMotCryptex, mot, idIndice) VALUES
+(0, "Non", 7)
+(1, "Non", 8)
+(2, "Non", 9)
+
+INSERT INTO Utilisateur (idUtilisateur, pseudoUser, xp) VALUES
+(0, "Oui", 0)
+(1, "Oui", 0)
+(2, "Biggus Dickus", 0)
+
+INSERT INTO resultat (idpartie, idutilisateur, istresor, iscryptex, ispendu, isson, isprixjuste) VALUES
+(0, 0, false, false, false, false, false)
+(1, 1, false, false, false, false, false)
+(2, 2, false, false, false, false, false)
+
+INSERT INTO InfoSecu (idInfoSecu, idUtilisateur, psswrd, email) VALUES
+(0, 0, "1234", "YesButNo@gmail.com")
+(1, 1, "1234", "NoButYes@gmail.com")
+(2, 2, "1234", "YesButYes@gmail.com")
+
+
+
+

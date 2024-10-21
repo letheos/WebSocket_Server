@@ -23,7 +23,6 @@ public class Indice {
      */
     @Column(name = "indice",unique=true, nullable=false)
     private String indice;
-
     /**
      * La liste d'indices pour le Cryptex
      */

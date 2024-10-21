@@ -1,8 +1,10 @@
-CREATE TABLE Indice
+reate table indice
 (
-    idIndice SERIAL PRIMARY KEY,
-    indice   TEXT NOT NULL
+    idindice serial    primary key,
+    indice   varchar(255) not null,
+    motcache text         not null
 );
+
 
 create table choseatrouverprixjust
 (

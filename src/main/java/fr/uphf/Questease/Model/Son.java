@@ -14,6 +14,7 @@ public class Son {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "idSon")
     private Long id;
 
     /**
@@ -26,6 +27,6 @@ public class Son {
      * L'indice lié au son à décrire
      */
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idIndice")
-    private Indice Indice;
+    @JoinColumn(name = "idindice", referencedColumnName = "idindice")
+    private Indice indice;
 }

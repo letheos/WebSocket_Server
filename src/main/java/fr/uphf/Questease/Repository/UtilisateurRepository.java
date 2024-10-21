@@ -14,11 +14,10 @@ public interface UtilisateurRepository extends CrudRepository<Utilisateur, Long>
 
     /**
      * Requête permettant de récupérer les utilisateurs par leurs noms
-     * @param name Le pseudonyme de l'utilisateur qui doit être récupéré
+     * @param pseudoUser Le pseudonyme de l'utilisateur qui doit être récupéré
      * @return L'utilisateur associé au nom
      */
-    @Query("SELECT * FROM UTILISATEUR WHERE pseudoUser = :name")
-    Iterable<Utilisateur> findUtilByName(@Param("pseudoUser") String name);
-
+    @Query("SELECT u FROM Utilisateur u WHERE u.nom = :pseudoUser")
+    Iterable<Utilisateur> findUtilByName(@Param("pseudoUser") String pseudoUser);
 
 }

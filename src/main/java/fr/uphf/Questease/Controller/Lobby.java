@@ -22,7 +22,6 @@ public class Lobby extends Thread{
 
     public void Connexion(String pseudo){
         //verifier la connexion
-
     }
 
     public boolean Ready(){

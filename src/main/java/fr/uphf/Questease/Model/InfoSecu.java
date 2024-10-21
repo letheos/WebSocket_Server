@@ -14,6 +14,7 @@ public class InfoSecu {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "idinfosecu")
     private Long id;
 
     /**
@@ -28,7 +29,10 @@ public class InfoSecu {
     @Column(name = "email", nullable = false)
     private String email;
 
-    //TODO OneToOne à faire
+    @OneToOne
+    @JoinColumn(name = "idutilisateur", referencedColumnName = "idutilisateur")
+    private Utilisateur utilisateur;
+
 
     /**
      * Le getter de l'id des informations privées de l'utilisateur

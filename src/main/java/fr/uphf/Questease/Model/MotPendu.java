@@ -33,6 +33,6 @@ public class MotPendu {
      * L'indice lié au mot à trouver lors du jeu du Pendu
      */
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idIndice")
-    private Indice Indice;
+    @JoinColumn(name = "idindice", referencedColumnName = "idindice")
+    private Indice indice;
 }

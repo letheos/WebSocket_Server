@@ -15,31 +15,31 @@ public class Indice {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "idIndice")
+    @Column(name = "idindice")
     private int id;
 
     /**
      * Le texte de l'indice
      */
-    @Column(name = "indice",unique=true)
-    private String hint;
+    @Column(name = "indice",unique=true, nullable=false)
+    private String indice;
 
     /**
      * La liste d'indices pour le Cryptex
      */
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "owner", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "indice", cascade = CascadeType.ALL)
     private List<MotCryptex> motCryptexList;
 
     /**
      * La liste d'indices du Pendu
      */
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "owner", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "indice", cascade = CascadeType.ALL)
     private List<MotCryptex> motPenduList;
 
     /**
      * La liste d'indices du Deviner le Son
      */
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "owner", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "indice", cascade = CascadeType.ALL)
     private List<MotCryptex> sonList;
 
     /**
@@ -50,11 +50,11 @@ public class Indice {
     /**
      * Le constructeur paramétrique de l'indice
      * @param id L'id de l'indice
-     * @param hint Le texte de l'indice
+     * @param indice Le texte de l'indice
      */
-    public Indice(int id, String hint) {
+    public Indice(int id, String indice) {
         this.id = id;
-        this.hint = hint;
+        this.indice = indice;
     }
 
     /**
@@ -70,6 +70,6 @@ public class Indice {
      * @return Le texte de l'indice
      */
     public String getHint() {
-        return hint;
+        return indice;
     }
 }

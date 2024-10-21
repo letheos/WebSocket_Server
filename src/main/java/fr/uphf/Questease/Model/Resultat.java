@@ -14,7 +14,7 @@ public class Resultat {
      * L'id de la partie auquel sont liés les résultats
      */
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idPartie")
     private Long idPartie;
 
@@ -51,8 +51,8 @@ public class Resultat {
     /**
      * L'utilisateur auquel sont lié les résultats
      */
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idUtilisateur", referencedColumnName = "idUtilisateur")
+    @ManyToOne
+    @JoinColumn(name = "idutilisateur", referencedColumnName = "idutilisateur")  // Clé étrangère vers "utilisateur"
     private Utilisateur utilisateur;
 
     /**

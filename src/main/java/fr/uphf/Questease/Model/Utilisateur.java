@@ -9,19 +9,22 @@ public class Utilisateur {
 
     @Id
     @GeneratedValue
+    @Column(name = "idutilisateur")
     private Long id;
 
-    @Column(nullable = false, unique = true)
+    @Column(name = "pseudouser",nullable = false, unique = true)
     private String nom;
 
-    @Column(nullable = false)
+    @Column(name = "xp",nullable = false)
     private int Xp;
 
-    @OneToOne(mappedBy = "InfoSecu", cascade = CascadeType.ALL)
-    private InfoSecu inf;
+
+    @OneToOne(mappedBy = "utilisateur", cascade = CascadeType.ALL)
+    private InfoSecu infoSecu;
+
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idUtilisateur", referencedColumnName = "idUtilisateur")
+    @JoinColumn(name = "idutilisateur", referencedColumnName = "idutilisateur")  // Clé étrangère dans la table "resultat"
     private Set<Resultat> resultat;
 
 

@@ -8,13 +8,12 @@ import jakarta.persistence.*;
 public class Resultat {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idPartie")
     private Long idPartie;
 
     @Column(name = "isTresor", nullable = false)
     private boolean isTresor;
-
 
     @Column(name = "isCryptex", nullable = false)
     private boolean isCryptex;
@@ -28,8 +27,8 @@ public class Resultat {
     @Column(name = "isprixjuste", nullable = false)
     private boolean isprixjuste;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idUtilisateur", referencedColumnName = "idUtilisateur")
+    @ManyToOne
+    @JoinColumn(name = "idutilisateur", referencedColumnName = "idutilisateur")  // Clé étrangère vers "utilisateur"
     private Utilisateur utilisateur;
 
 

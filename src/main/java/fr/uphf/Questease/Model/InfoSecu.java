@@ -8,6 +8,7 @@ public class InfoSecu {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "idinfosecu")
     private Long id;
 
     @Column(name = "psswrd", nullable = false)
@@ -16,7 +17,10 @@ public class InfoSecu {
     @Column(name = "email", nullable = false)
     private String email;
 
-    //TODO OneToOne à faire
+    @OneToOne
+    @JoinColumn(name = "idutilisateur", referencedColumnName = "idutilisateur")
+    private Utilisateur utilisateur;
+
 
     public Long getId() {
         return id;

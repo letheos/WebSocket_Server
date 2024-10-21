@@ -2,7 +2,7 @@ package fr.uphf.Questease.Controller;
 
 
 import fr.uphf.Questease.Model.MotCryptex;
-import fr.uphf.Questease.Repository.motCryptexRepository;
+import fr.uphf.Questease.Repository.MotCryptexRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -11,9 +11,9 @@ import java.util.Optional;
 @RequestMapping
 public class MotCryptexController {
 
-    private final motCryptexRepository repo;
+    private final MotCryptexRepository repo;
 
-    public MotCryptexController(motCryptexRepository repo) {
+    public MotCryptexController(MotCryptexRepository repo) {
         this.repo = repo;
     }
 

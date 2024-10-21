@@ -4,37 +4,71 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
+/**
+ * Représente l'indice lié à l'un des minijeux
+ */
 @Entity
 public class Indice {
+
+    /**
+     * L'id de l'indice
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idIndice")
     private int id;
 
+    /**
+     * Le texte de l'indice
+     */
     @Column(name = "indice",unique=true)
     private String hint;
 
+    /**
+     * La liste d'indices pour le Cryptex
+     */
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "owner", cascade = CascadeType.ALL)
     private List<MotCryptex> motCryptexList;
 
+    /**
+     * La liste d'indices du Pendu
+     */
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "owner", cascade = CascadeType.ALL)
     private List<MotCryptex> motPenduList;
 
+    /**
+     * La liste d'indices du Deviner le Son
+     */
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "owner", cascade = CascadeType.ALL)
     private List<MotCryptex> sonList;
 
-
+    /**
+     * Le constructeur par défaut de l'indice
+     */
     public Indice() {}
 
+    /**
+     * Le constructeur paramétrique de l'indice
+     * @param id L'id de l'indice
+     * @param hint Le texte de l'indice
+     */
     public Indice(int id, String hint) {
         this.id = id;
         this.hint = hint;
     }
 
+    /**
+     * Le getter de l'id de l'indice
+     * @return L'id de l'indice
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Le getter du texte de l'indice
+     * @return Le texte de l'indice
+     */
     public String getHint() {
         return hint;
     }

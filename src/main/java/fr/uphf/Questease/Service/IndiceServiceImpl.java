@@ -24,7 +24,7 @@ public class IndiceServiceImpl implements IndiceService {
     }
 
     @Override
-    public Optional<Indice> FetchIndice(long id) {
+    public Optional<Indice> FetchIndice(Long id) {
         return repo.findById(id);
     }
 

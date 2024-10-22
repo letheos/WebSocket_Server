@@ -23,6 +23,12 @@ public class Indice {
      */
     @Column(name = "indice",unique=true, nullable=false)
     private String indice;
+
+    /**
+     * Le mot caché par cet indice
+     */
+    @Column(name = "motcache",nullable=false)
+    private String motcache;
     /**
      * La liste d'indices pour le Cryptex
      */
@@ -71,4 +77,6 @@ public class Indice {
     public String getHint() {
         return indice;
     }
+
+ 
 }

@@ -2,6 +2,7 @@ package fr.uphf.Questease.Controller;
 
 import fr.uphf.Questease.Model.ChoseATrouverPrixJuste;
 import fr.uphf.Questease.Repository.ChoseATrouverPrixJusteRepository;
+import fr.uphf.Questease.Service.ChoseATrouverPrixJusteServiceImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,13 +18,13 @@ public class ChoseATrouverPrixJusteController {
     /**
      * Le repositoire de ChoseATrouverPrixJuste
      */
-    private final ChoseATrouverPrixJusteRepository repo;
+    private final ChoseATrouverPrixJusteServiceImpl repo;
 
     /**
      * Contructeur de la classe ChoseATrouverPrixJusteController
      * @param repo Le repositoire de la classe ChoseATrouverPrixJuste
      */
-    public ChoseATrouverPrixJusteController(ChoseATrouverPrixJusteRepository repo) {
+    public ChoseATrouverPrixJusteController(ChoseATrouverPrixJusteServiceImpl repo) {
         this.repo = repo;
     }
 
@@ -34,7 +35,7 @@ public class ChoseATrouverPrixJusteController {
      */
     @GetMapping("/{idChoseATrouver}")
     public ResponseEntity<Optional<ChoseATrouverPrixJuste>> GetChoseById(@PathVariable Long idChose) {
-        return ResponseEntity.ok(repo.findById(idChose));
+        return ResponseEntity.ok(repo.ReadChose(idChose));
     }
 
     /**
@@ -43,7 +44,7 @@ public class ChoseATrouverPrixJusteController {
      */
     @PostMapping("/{idchoseATrouver}")
     public void PostChose(@PathVariable ChoseATrouverPrixJuste C) {
-        repo.save(C);
+        repo.SaveChose(C);
     }
 
     /**
@@ -53,8 +54,8 @@ public class ChoseATrouverPrixJusteController {
      */
     @PatchMapping("/{idchoseATrouver}")
     public void UpdateChoseATrouver(Long idChose, @PathVariable ChoseATrouverPrixJuste C) {
-        repo.deleteById(idChose);
-        repo.save(C);
+        repo.DeleteChose(idChose);
+        repo.SaveChose(C);
     }
 
     /**
@@ -63,6 +64,6 @@ public class ChoseATrouverPrixJusteController {
      */
     @DeleteMapping("/{idChoseATrouver}")
     public void DeleteChose(@PathVariable ChoseATrouverPrixJuste C) {
-        repo.delete(C);
+        repo.DeleteChose(C.getId());
     }
 }

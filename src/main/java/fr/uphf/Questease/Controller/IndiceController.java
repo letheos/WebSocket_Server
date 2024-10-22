@@ -2,6 +2,7 @@ package fr.uphf.Questease.Controller;
 
 import fr.uphf.Questease.Model.Indice;
 import fr.uphf.Questease.Repository.IndiceRepository;
+import fr.uphf.Questease.Service.IndiceServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -16,13 +17,13 @@ public class IndiceController {
     /**
      * Le repositoire de la classe Indice
      */
-    private final IndiceRepository repo;
+    private final IndiceServiceImpl repo;
 
     /**
      * Constructeur de la classe IndiceController
      * @param repo Le repositoire de la classe Indice
      */
-    public IndiceController(IndiceRepository repo) {
+    public IndiceController(IndiceServiceImpl repo) {
         this.repo = repo;
     }
 
@@ -33,7 +34,7 @@ public class IndiceController {
      */
     @GetMapping("/idIndice")
     public Optional<Indice> getIndiceById(@PathVariable Long idIndice) {
-        return repo.findById(idIndice);
+        return repo.FetchIndice(idIndice);
     }
 
     /**
@@ -42,7 +43,7 @@ public class IndiceController {
      */
     @PostMapping("/{idIndice}")
     public void PostIndice(@PathVariable Indice I) {
-        repo.save(I);
+        repo.SaveIndice(I);
     }
 
     /**
@@ -52,8 +53,8 @@ public class IndiceController {
      */
     @PatchMapping("/{idIndice}")
     public void UpdateIndice(Long IdIndice, @PathVariable Indice I) {
-        repo.deleteById(IdIndice);
-        repo.save(I);
+        repo.deleteIndice(IdIndice);
+        repo.SaveIndice(I);
     }
 
     /**
@@ -62,6 +63,6 @@ public class IndiceController {
      */
     @DeleteMapping("/{idIndice}")
     public void DeleteinfoSecu(@PathVariable Indice I) {
-        repo.delete(I);
+        repo.deleteIndice(I.getId());
     }
 }

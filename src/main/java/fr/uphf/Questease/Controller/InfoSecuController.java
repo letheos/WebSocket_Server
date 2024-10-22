@@ -2,6 +2,7 @@ package fr.uphf.Questease.Controller;
 
 import fr.uphf.Questease.Model.InfoSecu;
 import fr.uphf.Questease.Repository.InfoSecuRepository;
+import fr.uphf.Questease.Service.InfoSecuServicelmpl;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -16,13 +17,13 @@ public class InfoSecuController {
     /**
      * Le repositoire d'InfoSecu
      */
-    private final InfoSecuRepository repo;
+    private final InfoSecuServicelmpl repo;
 
     /**
      * Le constructeur de la classe InfoSecuController
      * @param repo le repositoire d'InfoSecu
      */
-    public InfoSecuController(InfoSecuRepository repo) {
+    public InfoSecuController(InfoSecuServicelmpl repo) {
         this.repo = repo;
     }
 
@@ -33,7 +34,7 @@ public class InfoSecuController {
      */
     @GetMapping("/idinfoSecu")
     public Optional<InfoSecu> getInfoSecuById(@PathVariable Long idInfo){
-        return repo.findById(idInfo);
+        return repo.FetchInfoSecuById(idInfo);
     }
 
     /**
@@ -42,7 +43,7 @@ public class InfoSecuController {
      */
     @PostMapping("/{idinfoSecu}")
     public void PostInfoSecu(@PathVariable InfoSecu IS){
-        repo.save(IS);
+        repo.saveInfoSecu(IS);
     }
 
     /**
@@ -52,8 +53,8 @@ public class InfoSecuController {
      */
     @PatchMapping("/{idinfoSecu}")
     public void UpdateInfoSecu(Long IdinfoSecu, @PathVariable InfoSecu IS){
-        repo.deleteById(IdinfoSecu);
-        repo.save(IS);
+        repo.deleteInfoSecu(IdinfoSecu);
+        repo.saveInfoSecu(IS);
     }
 
     /**
@@ -62,6 +63,6 @@ public class InfoSecuController {
      */
     @DeleteMapping("/{idinfoSecu}")
     public void DeleteinfoSecu(@PathVariable InfoSecu IS){
-        repo.delete(IS);
+        repo.deleteInfoSecu(IS.getId());
     }
 }

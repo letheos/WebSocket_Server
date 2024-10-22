@@ -60,7 +60,7 @@ public class motPenduController {
 
     /**
      * Méthode Delete permettant de supprimer un mot dans la base de donnée
-     * @param M Mot dans la base de donnée à supprimer
+     * @param idPendu L'id du mot dans la base de donnée à supprimer
      */
     @DeleteMapping("/{idMotPendu}")
     public void DeleteMot(@PathVariable Long idPendu) {

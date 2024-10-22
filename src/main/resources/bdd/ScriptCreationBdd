@@ -11,14 +11,16 @@ create table choseatrouverprixjust
     idchoseatrouver serialprimary key,
     nom             text    not null unique,
     prix            integer not null,
+    difficulte      text    not null,
     pathtopicture   text    not null
 );
 
 CREATE TABLE Son
 (
-    idSon     SERIAL PRIMARY KEY,
-    cheminSon TEXT NOT NULL,
-    idIndice  INT  NOT NULL,
+    idSon       SERIAL PRIMARY KEY,
+    difficulte  text not null,
+    cheminSon   TEXT NOT NULL,
+    idIndice    INT  NOT NULL,
     FOREIGN KEY (idIndice) REFERENCES Indice (idIndice)
 );
 
@@ -26,6 +28,7 @@ CREATE TABLE MotPendu
 (
     idMotPendu SERIAL PRIMARY KEY,
     mot        TEXT NOT NULL,
+    difficulte text not null,
     idIndice   INT  NOT NULL,
     FOREIGN KEY (idIndice) REFERENCES Indice (idIndice)
 );
@@ -34,6 +37,7 @@ CREATE TABLE MotCryptex
 (
     idMotCryptex SERIAL PRIMARY KEY,
     mot          TEXT NOT NULL,
+    difficulte   text not null,
     idIndice     INT  NOT NULL,
     FOREIGN KEY (idIndice) REFERENCES Indice (idIndice)
 );

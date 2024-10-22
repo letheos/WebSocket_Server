@@ -23,6 +23,11 @@ public class UtilisateurServiceImpl implements UtilisateurService{
     }
 
     @Override
+    public Iterable<Utilisateur> FetchOne(String pseudoUser){
+        return repo.findUtilByName(pseudoUser);
+    }
+
+    @Override
     public Utilisateur UpdateUtilisateur(Utilisateur utilisateur, Long utilisateurId) {
         repo.deleteById(utilisateurId);
         return repo.save(utilisateur);

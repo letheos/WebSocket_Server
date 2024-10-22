@@ -9,7 +9,10 @@ public interface UtilisateurService {
 
     List<Utilisateur> FetchUtilisateurList();
 
+    Iterable<Utilisateur> FetchOne(String pseudoUser);
+
     Utilisateur UpdateUtilisateur(Utilisateur utilisateur, Long utilisateurId);
 
     void DeleteUtilisateur(Long utilisateurId);
+
 }

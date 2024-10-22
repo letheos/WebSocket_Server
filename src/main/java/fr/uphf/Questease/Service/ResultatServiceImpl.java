@@ -5,9 +5,10 @@ import fr.uphf.Questease.Repository.ResultatRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
-public class ResultatServiceImpl implements ResultatSerice{
+public class ResultatServiceImpl implements ResultatService{
     private ResultatRepository repo;
 
     @Override
@@ -18,6 +19,10 @@ public class ResultatServiceImpl implements ResultatSerice{
     @Override
     public List<Resultat> FetchResultatList() {
         return (List<Resultat>) repo.findAll();
+    }
+
+    public Optional<Resultat> FetchOne(Long idResultat){
+        return repo.findById(idResultat);
     }
 
     @Override

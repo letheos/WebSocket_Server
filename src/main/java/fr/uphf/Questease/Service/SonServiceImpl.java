@@ -5,6 +5,7 @@ import fr.uphf.Questease.Repository.SonRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class SonServiceImpl implements SonService {
@@ -18,6 +19,11 @@ public class SonServiceImpl implements SonService {
     @Override
     public List<Son> FetchSonList() {
         return (List<Son>) repo.findAll();
+    }
+
+    @Override
+    public Optional<Son> FetchOne(Long idSon){
+        return repo.findById(idSon);
     }
 
     @Override

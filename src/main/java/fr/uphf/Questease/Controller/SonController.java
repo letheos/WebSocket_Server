@@ -3,6 +3,7 @@ package fr.uphf.Questease.Controller;
 
 import fr.uphf.Questease.Model.Son;
 import fr.uphf.Questease.Repository.SonRepository;
+import fr.uphf.Questease.Service.SonServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -17,13 +18,13 @@ public class SonController {
     /**
      * Le repositoire de Son
      */
-    private final SonRepository repo;
+    private final SonServiceImpl repo;
 
     /**
      * Le constructeur de SonController
      * @param repo Le repositoire de Son
      */
-    public SonController(SonRepository repo) {
+    public SonController(SonServiceImpl repo) {
         this.repo = repo;
     }
 
@@ -34,7 +35,7 @@ public class SonController {
      */
     @GetMapping("/idSon")
     public Optional<Son> getSonById(@PathVariable Long idSon) {
-        return repo.findById(idSon);
+        return repo.FetchOne(idSon);
     }
 
     /**
@@ -43,7 +44,7 @@ public class SonController {
      */
     @PostMapping("/{idSon}")
     public void PostSon(@PathVariable Son S) {
-        repo.save(S);
+        repo.SaveSon(S);
     }
 
 
@@ -54,16 +55,16 @@ public class SonController {
      */
     @PatchMapping("/{idSon}")
     public void UpdateSon(Long IdSon, @PathVariable Son S) {
-        repo.deleteById(IdSon);
-        repo.save(S);
+        repo.DeleteSon(IdSon);
+        repo.SaveSon(S);
     }
 
     /**
      * Méthode Delete permettant de supprimer un Son dans la base de donnée
-     * @param S Le son à supprimer
+     * @param idSon L'id du son à supprimer
      */
     @DeleteMapping("/{idSon}")
-    public void DeleteSon(@PathVariable Son S) {
-        repo.delete(S);
+    public void DeleteSon(@PathVariable Long idSon) {
+        repo.DeleteSon(idSon);
     }
 }

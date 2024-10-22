@@ -2,6 +2,7 @@ package fr.uphf.Questease.Controller;
 
 import fr.uphf.Questease.Model.Utilisateur;
 import fr.uphf.Questease.Repository.UtilisateurRepository;
+import fr.uphf.Questease.Service.UtilisateurServiceImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,13 +16,13 @@ public class UtilisateurController {
     /**
      * Le repositoire d'Utilisateur
      */
-    private final UtilisateurRepository UtilRepository;
+    private final UtilisateurServiceImpl UtilRepository;
 
     /**
      * Le constructeur d'UtilisateurController
      * @param utililisateurRepository Le repositoire d'Utilisateur
      */
-    public UtilisateurController(UtilisateurRepository utililisateurRepository) {
+    public UtilisateurController(UtilisateurServiceImpl utililisateurRepository) {
         UtilRepository = utililisateurRepository;
     }
 
@@ -32,7 +33,7 @@ public class UtilisateurController {
      */
     @GetMapping("/{idUtil}")
     public ResponseEntity<Iterable<Utilisateur>> getUserByName(@PathVariable String nameUtil){
-        return ResponseEntity.ok(UtilRepository.findUtilByName(nameUtil));
+        return ResponseEntity.ok(UtilRepository.FetchOne(nameUtil));
     }
 
     /**
@@ -41,7 +42,7 @@ public class UtilisateurController {
      */
     @PostMapping("/{idUtil}")
     public void PostUser(@PathVariable Utilisateur Util){
-        UtilRepository.save(Util);
+        UtilRepository.SaveUtilisateur(Util);
     }
 
     /**
@@ -51,17 +52,17 @@ public class UtilisateurController {
      */
     @PatchMapping("/{idUtil}")
     public void UpdateUser(Long IdUser, @PathVariable Utilisateur Util){
-        UtilRepository.deleteById(IdUser);
-        UtilRepository.save(Util);
+        UtilRepository.DeleteUtilisateur(IdUser);
+        UtilRepository.SaveUtilisateur(Util);
     }
 
     /**
      * Méthode Delete permettant de supprimer un Utilisateur de la base de donnée
-     * @param Util L'Utilisateur à supprimer de la base de donnée
+     * @param idUtil L'id de l'Utilisateur à supprimer de la base de donnée
      */
     @DeleteMapping("/{idUtil}")
-    public void DeleteUser(@PathVariable Utilisateur Util){
-        UtilRepository.delete(Util);
+    public void DeleteUser(@PathVariable Long idUtil){
+        UtilRepository.DeleteUtilisateur(idUtil);
     }
 
 }

@@ -3,6 +3,7 @@ package fr.uphf.Questease.Controller;
 
 import fr.uphf.Questease.Model.MotPendu;
 import fr.uphf.Questease.Repository.MotPenduRepository;
+import fr.uphf.Questease.Service.MotPenduServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -17,13 +18,13 @@ public class motPenduController {
     /**
      * Le repositoire de motPendu
      */
-    private final MotPenduRepository repo;
+    private final MotPenduServiceImpl repo;
 
     /**
      * Le constructeur de la classe motPenduController
      * @param repo le repositoire de motPendu
      */
-    public motPenduController(MotPenduRepository repo) {
+    public motPenduController(MotPenduServiceImpl repo) {
         this.repo = repo;
     }
 
@@ -34,7 +35,7 @@ public class motPenduController {
      */
     @GetMapping("/{idMotPendu}")
     public Optional<MotPendu> getMotById(@PathVariable Long idMot) {
-        return repo.findById(idMot);
+        return repo.FetchOne(idMot);
     }
 
     /**
@@ -43,7 +44,7 @@ public class motPenduController {
      */
     @PostMapping("/{idMotPendu}")
     public void PostMot(@PathVariable MotPendu M) {
-        repo.save(M);
+        repo.SaveMotPendu(M);
     }
 
     /**
@@ -53,8 +54,8 @@ public class motPenduController {
      */
     @PatchMapping("/{idMotPendu}")
     public void UpdateMot(Long IdMotPendu, @PathVariable MotPendu M) {
-        repo.deleteById(IdMotPendu);
-        repo.save(M);
+        repo.DeleteMotPendu(IdMotPendu);
+        repo.SaveMotPendu(M);
     }
 
     /**
@@ -62,7 +63,7 @@ public class motPenduController {
      * @param M Mot dans la base de donnée à supprimer
      */
     @DeleteMapping("/{idMotPendu}")
-    public void DeleteMot(@PathVariable MotPendu M) {
-        repo.delete(M);
+    public void DeleteMot(@PathVariable Long idPendu) {
+        repo.DeleteMotPendu(idPendu);
     }
 }

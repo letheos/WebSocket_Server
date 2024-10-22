@@ -3,6 +3,7 @@ package fr.uphf.Questease.Controller;
 
 import fr.uphf.Questease.Model.Resultat;
 import fr.uphf.Questease.Repository.ResultatRepository;
+import fr.uphf.Questease.Service.ResultatServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -17,13 +18,13 @@ public class ResultatController {
     /**
      * Le repositoire de Resultat
      */
-    private final ResultatRepository repo;
+    private final ResultatServiceImpl repo;
 
     /**
      * Le constructeur de ResultatController
      * @param repo Le repositoire de Resultat
      */
-    public ResultatController(ResultatRepository repo) {
+    public ResultatController(ResultatServiceImpl repo) {
         this.repo = repo;
     }
 
@@ -34,7 +35,7 @@ public class ResultatController {
      */
     @GetMapping("/{idPartie}")
     public Optional<Resultat> getResultatByIdpartie(@PathVariable Long idpartie) {
-        return repo.findById(idpartie);
+        return repo.FetchOne(idpartie);
     }
 
     /**
@@ -43,7 +44,7 @@ public class ResultatController {
      */
     @PostMapping("/{idPartie}")
     public void PostResultat(@PathVariable Resultat R) {
-        repo.save(R);
+        repo.SaveResultat(R);
     }
 
     /**
@@ -53,8 +54,8 @@ public class ResultatController {
      */
     @PatchMapping("/{iPartie}")
     public void UpdateResultat(Long Idpartie, @PathVariable Resultat R) {
-        repo.deleteById(Idpartie);
-        repo.save(R);
+        repo.DeleteResultat(Idpartie);
+        repo.SaveResultat(R);
     }
 
     /**
@@ -62,7 +63,7 @@ public class ResultatController {
      * @param R Le résultat à supprimer
      */
     @DeleteMapping("/{idPartie}")
-    public void DeleteResultat(@PathVariable Resultat R) {
-        repo.delete(R);
+    public void DeleteResultat(@PathVariable Long idRes) {
+        repo.DeleteResultat(idRes);
     }
 }

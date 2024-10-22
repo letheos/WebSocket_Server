@@ -35,4 +35,20 @@ public class MotCryptex {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idindice", referencedColumnName = "idindice")
     private Indice indice;
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getMot() {
+        return mot;
+    }
+
+    public int getDiff() {
+        return diff;
+    }
+
+    public Indice getIndice() {
+        return indice;
+    }
 }

@@ -3,6 +3,7 @@ package fr.uphf.Questease.Controller;
 
 import fr.uphf.Questease.Model.MotCryptex;
 import fr.uphf.Questease.Repository.MotCryptexRepository;
+import fr.uphf.Questease.Service.MotCryptexServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -11,31 +12,31 @@ import java.util.Optional;
 @RequestMapping
 public class MotCryptexController {
 
-    private final MotCryptexRepository repo;
+    private final MotCryptexServiceImpl repo;
 
-    public MotCryptexController(MotCryptexRepository repo) {
+    public MotCryptexController(MotCryptexServiceImpl repo) {
         this.repo = repo;
     }
 
 
     @GetMapping("/idMotCryptex")
     public Optional<MotCryptex> getMotById(@PathVariable Long idMotCryptex) {
-        return repo.findById(idMotCryptex);
+        return repo.FetchMotCryptex(idMotCryptex);
     }
 
     @PostMapping("/{idMotCryptex}")
     public void PostIndice(@PathVariable MotCryptex M) {
-        repo.save(M);
+        repo.SaveMotCryptex(M);
     }
 
     @PatchMapping("/{idMotCryptex}")
     public void UpdateMot(Long IdMot, @PathVariable MotCryptex M) {
-        repo.deleteById(IdMot);
-        repo.save(M);
+        repo.deleteMotCryptex(IdMot);
+        repo.SaveMotCryptex(M);
     }
 
     @DeleteMapping("/{idMoCryptex}")
     public void DeleteMot(@PathVariable MotCryptex M) {
-        repo.delete(M);
+        repo.deleteMotCryptex(M.getId());
     }
 }

@@ -68,18 +68,18 @@ CREATE TABLE InfoSecu
 );
 
 
-INSERT INTO Indice (idIndice, Indice) VALUES
-(0, "UnIndiceSon")
-(1, "UnIndiceSon")
-(3, "UnIndiceSon")
+INSERT INTO Indice (idIndice, Indice, motcache) VALUES
+(0, "UnIndiceSon", "Oui")
+(1, "UnIndiceSon", "Oui")
+(3, "UnIndiceSon", "Oui")
 
-(4, "UnIndicePendu")
-(5, "UnIndicePendu")
-(6, "UnIndicePendu")
+(4, "UnIndicePendu", "Non")
+(5, "UnIndicePendu", "Non")
+(6, "UnIndicePendu", "Non")
 
-(7, "UnIndiceCryptex")
-(8, "UnIndiceCryptex")
-(9, "UnIndiceCryptex")
+(7, "UnIndiceCryptex", "Oui")
+(8, "UnIndiceCryptex", "Oui")
+(9, "UnIndiceCryptex", "Biggus Dickusgit add .")
 
 INSERT INTO choseatrouverprixjust (idchoseatrouver, nom, prix, pathtopicture) VALUES
 (0, "Voiture", 2500, "A/Path/To/Somewhere")

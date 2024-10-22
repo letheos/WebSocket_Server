@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ChoseATrouverPrixJusteServiceImpl implements ChoseATrouverPrixJusteService{
@@ -20,6 +21,11 @@ public class ChoseATrouverPrixJusteServiceImpl implements ChoseATrouverPrixJuste
     @Override
     public List<ChoseATrouverPrixJuste> FetchChoseList() {
         return (List<ChoseATrouverPrixJuste>)repo.findAll();
+    }
+
+    @Override
+    public Optional<ChoseATrouverPrixJuste> ReadChose(Long id) {
+        return repo.findById(id);
     }
 
     @Override

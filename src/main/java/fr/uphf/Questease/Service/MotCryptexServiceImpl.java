@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MotCryptexServiceImpl implements MotCryptexService {
@@ -20,6 +21,11 @@ public class MotCryptexServiceImpl implements MotCryptexService {
     @Override
     public List<MotCryptex> FetchMotCryptexList() {
         return (List<MotCryptex>) repo.findAll();
+    }
+
+    @Override
+    public Optional<MotCryptex> FetchMotCryptex(Long id) {
+        return repo.findById(id);
     }
 
     @Override

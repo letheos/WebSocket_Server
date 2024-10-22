@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class InfoSecuServicelmpl implements InfoSecuService{
@@ -22,6 +23,12 @@ public class InfoSecuServicelmpl implements InfoSecuService{
     public List<InfoSecu> fetchInfoSecuList() {
         return (List<InfoSecu>) infoSecuRepository.findAll();
     }
+
+    @Override
+    public Optional<InfoSecu> FetchInfoSecuById(Long id) {
+        return infoSecuRepository.findById(id);
+    }
+
 
     @Override
     public InfoSecu UpdateInfoSecu(InfoSecu infoSecu, Long infoSecuId) {

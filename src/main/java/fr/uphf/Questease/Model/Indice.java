@@ -16,7 +16,7 @@ public class Indice {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idindice")
-    private int id;
+    private long id;
 
     /**
      * Le texte de l'indice
@@ -66,7 +66,7 @@ public class Indice {
      * Le getter de l'id de l'indice
      * @return L'id de l'indice
      */
-    public int getId() {
+    public long getId() {
         return id;
     }
 

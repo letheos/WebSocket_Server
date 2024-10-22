@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class IndiceServiceImpl implements IndiceService {
@@ -21,6 +22,12 @@ public class IndiceServiceImpl implements IndiceService {
     public List<Indice> FetchIndiceList() {
         return (List<Indice>)repo.findAll();
     }
+
+    @Override
+    public Optional<Indice> FetchIndice(Long id) {
+        return repo.findById(id);
+    }
+
 
     @Override
     public Indice UpdateIndice(Indice indice, Long indiceId) {

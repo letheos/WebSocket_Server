@@ -11,7 +11,7 @@ import java.util.Optional;
  * Controller du repositoire d'InfoSecu
  */
 @RestController
-@RequestMapping
+@RequestMapping("/infosecu")
 public class InfoSecuController {
 
     /**

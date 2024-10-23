@@ -5,13 +5,14 @@ import fr.uphf.Questease.Repository.IndiceRepository;
 import fr.uphf.Questease.Service.IndiceServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
  * Controller du repositoire d'IndiceRepositoire
  */
 @RestController
-@RequestMapping
+@RequestMapping("/indice")
 public class IndiceController {
 
     /**
@@ -35,6 +36,11 @@ public class IndiceController {
     @GetMapping("/idIndice")
     public Optional<Indice> getIndiceById(@PathVariable Long idIndice) {
         return repo.FetchIndice(idIndice);
+    }
+
+    @GetMapping("")
+    public List<Indice> getAllIndices() {
+        return repo.FetchIndiceList();
     }
 
     /**

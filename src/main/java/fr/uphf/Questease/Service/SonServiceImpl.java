@@ -2,6 +2,7 @@ package fr.uphf.Questease.Service;
 
 import fr.uphf.Questease.Model.Son;
 import fr.uphf.Questease.Repository.SonRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.Optional;
 
 @Service
 public class SonServiceImpl implements SonService {
+    @Autowired
     private SonRepository repo;
 
     @Override

@@ -6,17 +6,14 @@ import fr.uphf.Questease.Repository.MotCryptexRepository;
 import fr.uphf.Questease.Service.MotCryptexServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.Random;
-import java.util.random.RandomGenerator;
 
 /**
  * Controller de la classe MotCryptex
  */
 @RestController
-@RequestMapping
+@RequestMapping("/motcryptex")  // Base path to avoid conflicts
 public class MotCryptexController {
 
     /**
@@ -46,10 +43,10 @@ public class MotCryptexController {
      * Méthode get permettant de récupérer in mot aléatoire de la base de donnée
      * @return Un mot aléatoire de la base de donnée
      */
-    @GetMapping("MotCryptex")
+    @GetMapping("/random")
     public MotCryptex getRandomWord(){
         List<MotCryptex> liste = repo.FetchMotCryptexList();
-        return liste.get(0 + (int)(Math.random() * ((liste.size() - 0) + 1)));
+        return liste.get((int) (Math.random() * ((liste.size()) + 1)));
     }
 
     /**

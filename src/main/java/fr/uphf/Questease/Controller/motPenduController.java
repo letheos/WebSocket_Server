@@ -1,18 +1,21 @@
 package fr.uphf.Questease.Controller;
 
 
+import fr.uphf.Questease.Model.MotCryptex;
 import fr.uphf.Questease.Model.MotPendu;
 import fr.uphf.Questease.Repository.MotPenduRepository;
+import fr.uphf.Questease.Service.MotCryptexServiceImpl;
 import fr.uphf.Questease.Service.MotPenduServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
  * Controller du repositoire de motPendu
  */
 @RestController
-@RequestMapping
+@RequestMapping("/motpendu")
 public class motPenduController {
 
     /**
@@ -67,3 +70,5 @@ public class motPenduController {
         repo.DeleteMotPendu(idPendu);
     }
 }
+
+

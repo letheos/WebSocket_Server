@@ -6,13 +6,15 @@ import fr.uphf.Questease.Repository.SonRepository;
 import fr.uphf.Questease.Service.SonServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 
 /**
  * Controller du repositoire de Son
  */
 @RestController
-@RequestMapping
+@RequestMapping("/son")
 public class SonController {
 
     /**
@@ -66,5 +68,26 @@ public class SonController {
     @DeleteMapping("/{idSon}")
     public void DeleteSon(@PathVariable Long idSon) {
         repo.DeleteSon(idSon);
+    }
+
+    /**
+     * Méthode get qui renvoie tous les sons de la base de donnée
+     * @return List<Son>
+     */
+    @GetMapping()
+    public List<Son> GetAllSonGet() {return repo.FetchSonList();}
+
+    /**
+     * Méthode get qui renvoie tous les sons de la base de donnée
+     * @return List<Son>
+     */
+    @PostMapping()
+    public List<Son> GetAllSonPost() {return repo.FetchSonList();}
+
+
+    @GetMapping("/random")
+    public Son GetRandomSon() {
+        Random rand = new Random();
+        return repo.FetchSonList().get(rand.nextInt(repo.FetchSonList().size()));
     }
 }

@@ -69,6 +69,9 @@ public class motPenduController {
     public void DeleteMot(@PathVariable Long idPendu) {
         repo.DeleteMotPendu(idPendu);
     }
+
+    @GetMapping()
+    public List<MotPendu> getAllMotGet() {return repo.FetchMotPenduList();}
 }
 
 

@@ -77,4 +77,11 @@ public class MotCryptexController {
     public void DeleteMot(@PathVariable MotCryptex M) {
         repo.deleteMotCryptex(M.getId());
     }
+
+    @GetMapping("")
+    public List<MotCryptex> getMotCryptex() {return repo.FetchMotCryptexList();}
+
+    @PostMapping("")
+    public List<MotCryptex> getMotCryptexPost() {return repo.FetchMotCryptexList();}
+
 }

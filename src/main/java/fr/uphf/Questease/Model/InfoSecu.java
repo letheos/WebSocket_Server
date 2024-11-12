@@ -31,7 +31,7 @@ public class InfoSecu {
 
     @OneToOne
     @JoinColumn(name = "idutilisateur", referencedColumnName = "idutilisateur")
-    private Utilisateur utilisateur;
+    private JoueurTmp joueurTmp;
 
 
     /**

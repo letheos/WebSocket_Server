@@ -1,6 +1,5 @@
 package fr.uphf.Questease.Model;
 
-import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 
 /**
@@ -53,7 +52,7 @@ public class Resultat {
      */
     @ManyToOne
     @JoinColumn(name = "idutilisateur", referencedColumnName = "idutilisateur")  // Clé étrangère vers "utilisateur"
-    private Utilisateur utilisateur;
+    private JoueurTmp joueurTmp;
 
     /**
      * Le getter de l'id de la partie
@@ -99,8 +98,8 @@ public class Resultat {
      * Le getter de l'utilisateur lié à la partie
      * @return L'utilisateur lié à la partie
      */
-    public Utilisateur getUtilisateur() {
-        return utilisateur;
+    public JoueurTmp getUtilisateur() {
+        return joueurTmp;
     }
 
     /**

@@ -21,4 +21,6 @@ public interface JoueurTpmRepository extends CrudRepository<JoueurTmp, Long> {
             SELECT u FROM JoueurTmp u WHERE u.pseudo = :pseudoUser""")
     Iterable<JoueurTmp> findUtilByName(@Param("pseudoUser") String pseudoUser);
 
+
+
 }

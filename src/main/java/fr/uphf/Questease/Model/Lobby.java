@@ -23,6 +23,10 @@ public class Lobby {
         joueurs.add(host);
     }
 
+    public Lobby() {
+
+    }
+
     public List<JoueurTmp> getJoueurs() {
         return joueurs;
     }

@@ -3,16 +3,17 @@ package fr.uphf.Questease.Service;
 import fr.uphf.Questease.Model.JoueurTmp;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface JoueurTmpService {
-    JoueurTmp SaveUtilisateur(JoueurTmp joueurTmp);
+    JoueurTmp SaveJoueur(JoueurTmp joueurTmp);
 
-    List<JoueurTmp> FetchUtilisateurList();
+    List<JoueurTmp> FetchJoueurList();
 
-    Iterable<JoueurTmp> FetchOne(String pseudoUser);
+    Optional<JoueurTmp> FetchOne(Long id);
 
-    JoueurTmp UpdateUtilisateur(JoueurTmp joueurTmp, Long utilisateurId);
+    JoueurTmp UpdateJoueur(JoueurTmp joueurTmp, Long utilisateurId);
 
-    void DeleteUtilisateur(Long utilisateurId);
+    void DeleteJoueur(Long utilisateurId);
 
 }

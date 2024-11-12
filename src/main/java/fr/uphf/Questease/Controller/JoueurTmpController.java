@@ -1,40 +1,40 @@
 package fr.uphf.Questease.Controller;
 
-import fr.uphf.Questease.Model.Utilisateur;
-import fr.uphf.Questease.Repository.UtilisateurRepository;
-import fr.uphf.Questease.Service.UtilisateurServiceImpl;
+import fr.uphf.Questease.Model.JoueurTmp;
+import fr.uphf.Questease.Service.JoueurTmpServiceImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Controller du repositoire d'Utilisateur
  */
 @RestController
 @RequestMapping("/utilisateur")
-public class UtilisateurController {
+public class JoueurTmpController {
 
     /**
      * Le repositoire d'Utilisateur
      */
-    private final UtilisateurServiceImpl UtilRepository;
+    private final JoueurTmpServiceImpl UtilRepository;
 
     /**
      * Le constructeur d'UtilisateurController
      * @param utililisateurRepository Le repositoire d'Utilisateur
      */
-    public UtilisateurController(UtilisateurServiceImpl utililisateurRepository) {
+    public JoueurTmpController(JoueurTmpServiceImpl utililisateurRepository) {
         UtilRepository = utililisateurRepository;
     }
     /**
      * Méthode Get pour récupérer un Utilisateur via son nom
-     * @param nameUtil Le nom de l'Utilisateur à trouver
+     * @param idJoueur L'id de l'Utilisateur à trouver
      * @return L'Utilisateur à trouver
     **/
     @GetMapping("/{idUtil}")
-    public ResponseEntity<Iterable<Utilisateur>> getUserByName(@PathVariable String nameUtil){
-        return ResponseEntity.ok(UtilRepository.FetchOne(nameUtil));
+    public ResponseEntity<Optional<JoueurTmp>> getUserByName(@PathVariable Long idJoueur){
+        return ResponseEntity.ok(UtilRepository.FetchOne(idJoueur));
     }
 
     /**
@@ -42,8 +42,8 @@ public class UtilisateurController {
      * @param Util L'utilisateur à ajouté à la base de donnée
     **/
     @PostMapping("/{idUtil}")
-    public void PostUser(@PathVariable Utilisateur Util){
-        UtilRepository.SaveUtilisateur(Util);
+    public void PostUser(@PathVariable JoueurTmp Util){
+        UtilRepository.SaveJoueur(Util);
     }
 
     /**
@@ -52,9 +52,9 @@ public class UtilisateurController {
      * @param Util L'utilisateur qui sera mis à jour
     **/
     @PatchMapping("/{idUtil}")
-    public void UpdateUser(Long IdUser, @PathVariable Utilisateur Util){
-        UtilRepository.DeleteUtilisateur(IdUser);
-        UtilRepository.SaveUtilisateur(Util);
+    public void UpdateUser(Long IdUser, @PathVariable JoueurTmp Util){
+        UtilRepository.DeleteJoueur(IdUser);
+        UtilRepository.SaveJoueur(Util);
     }
 
     /**
@@ -63,13 +63,13 @@ public class UtilisateurController {
     **/
     @DeleteMapping("/{idUtil}")
     public void DeleteUser(@PathVariable Long idUtil){
-        UtilRepository.DeleteUtilisateur(idUtil);
+        UtilRepository.DeleteJoueur(idUtil);
     }
 
     @GetMapping()
-    public List<Utilisateur> GetAllUserGet(){return UtilRepository.FetchUtilisateurList();}
+    public List<JoueurTmp> GetAllUserGet(){return UtilRepository.FetchJoueurList();}
 
     @PostMapping()
-    public List<Utilisateur> GetAllUserPost(){return UtilRepository.FetchUtilisateurList();}
+    public List<JoueurTmp> GetAllUserPost(){return UtilRepository.FetchJoueurList();}
 
 }

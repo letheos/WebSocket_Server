@@ -1,18 +1,18 @@
 package fr.uphf.Questease.Controller;
 
 import fr.uphf.Questease.Model.ChoseATrouverPrixJuste;
-import fr.uphf.Questease.Repository.ChoseATrouverPrixJusteRepository;
 import fr.uphf.Questease.Service.ChoseATrouverPrixJusteServiceImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
  * Controller du repositoire de ChoseATrouverPrixJuste
  */
 @RestController
-@RequestMapping("/choseATrouver")
+@RequestMapping("/chose")
 public class ChoseATrouverPrixJusteController {
 
     private final ChoseATrouverPrixJusteServiceImpl repo;
@@ -39,6 +39,17 @@ public class ChoseATrouverPrixJusteController {
     @DeleteMapping("/{idChoseATrouver}")
     public void DeleteChose(@PathVariable Long idChoseATrouver) {
         repo.DeleteChose(idChoseATrouver);
+    }
+
+    @GetMapping("/random")
+    public ChoseATrouverPrixJuste GetRandomChose() {
+        List<ChoseATrouverPrixJuste> liste = repo.FetchChoseList();
+        return liste.get((int) (Math.random() * ((liste.size()) + 1)));
+    }
+
+    @GetMapping("")
+    public List<ChoseATrouverPrixJuste> GetAll(){
+        return repo.FetchChoseList();
     }
 }
 

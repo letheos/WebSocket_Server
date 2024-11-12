@@ -44,4 +44,8 @@ public class JoueurTmp {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public String getPseudo() {
+        return pseudo;
+    }
 }

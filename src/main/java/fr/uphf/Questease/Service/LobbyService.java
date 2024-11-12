@@ -5,12 +5,14 @@ import fr.uphf.Questease.Model.Lobby;
 
 import java.util.List;
 
-public interface LobbyService extends JoueurTmpService {
-    JoueurTmp SaveLobby(JoueurTmp joueurTmp);
+public interface LobbyService {
 
-    List<JoueurTmp> FetchLobbyList();
+    //Lobby SaveLobby(JoueurTmp joueurTmp);
+    Lobby SaveLobby(Lobby lobby);
 
-    Iterable<JoueurTmp> FetchOne(Lobby lobby);
+    List<Lobby> FetchLobbyList();
+
+    Iterable<Lobby> FetchOne(Lobby lobby);
 
     Lobby UpdateLobby(Lobby lobby, Long lobbyId);
 

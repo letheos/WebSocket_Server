@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class JoueurTmpServiceImpl implements JoueurTmpService {
@@ -13,28 +14,34 @@ public class JoueurTmpServiceImpl implements JoueurTmpService {
     private JoueurTpmRepository repo;
 
     @Override
-    public JoueurTmp SaveUtilisateur(JoueurTmp joueurTmp) {
+    public JoueurTmp SaveJoueur(JoueurTmp joueurTmp) {
         return repo.save(joueurTmp);
     }
 
     @Override
-    public List<JoueurTmp> FetchUtilisateurList() {
+    public List<JoueurTmp> FetchJoueurList() {
         return (List<JoueurTmp>) repo.findAll();
     }
 
     @Override
-    public Iterable<JoueurTmp> FetchOne(String pseudoUser){
-        return repo.findUtilByName(pseudoUser);
+    public Optional<JoueurTmp> FetchOne(Long id){
+        return repo.findById(id);
     }
 
     @Override
-    public JoueurTmp UpdateUtilisateur(JoueurTmp joueurTmp, Long utilisateurId) {
-        repo.deleteById(utilisateurId);
+    public JoueurTmp UpdateJoueur(JoueurTmp joueurTmp, Long idJoueur) {
+        repo.deleteById(idJoueur);
         return repo.save(joueurTmp);
     }
 
     @Override
-    public void DeleteUtilisateur(Long utilisateurId) {
-        repo.deleteById(utilisateurId);
+    public void DeleteJoueur(Long idJoueur) {
+        repo.deleteById(idJoueur);
     }
+
+    public boolean Exist(Long idJoueur){
+        return repo.existsById(idJoueur);
+    }
+
+
 }

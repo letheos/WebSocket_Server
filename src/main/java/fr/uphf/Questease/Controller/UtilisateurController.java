@@ -38,6 +38,13 @@ public class UtilisateurController {
     }
 
     /**
+     * Méthode Get permettant de récupérer tout les utilisateurs
+     * @return Une liste contenant tout les utilisateurs
+     */
+    @GetMapping()
+    public List<Utilisateur> GetAllUserGet(){return UtilRepository.FetchUtilisateurList();}
+
+    /**
      * Méthode Post permettant d'ajouter un Utilisateur à la base de donnée
      * @param Util L'utilisateur à ajouté à la base de donnée
     **/
@@ -45,6 +52,13 @@ public class UtilisateurController {
     public void PostUser(@PathVariable Utilisateur Util){
         UtilRepository.SaveUtilisateur(Util);
     }
+
+    /**
+     * Méthode Post permettant de récupérer tout les utilisateurs
+     * @return Une liste contenant tout les utilisateurs
+     */
+    @PostMapping()
+    public List<Utilisateur> GetAllUserPost(){return UtilRepository.FetchUtilisateurList();}
 
     /**
      * Méthode Update permettant de mettre à jour un Utilisateur dans la base de donnée
@@ -66,10 +80,8 @@ public class UtilisateurController {
         UtilRepository.DeleteUtilisateur(idUtil);
     }
 
-    @GetMapping()
-    public List<Utilisateur> GetAllUserGet(){return UtilRepository.FetchUtilisateurList();}
 
-    @PostMapping()
-    public List<Utilisateur> GetAllUserPost(){return UtilRepository.FetchUtilisateurList();}
+
+
 
 }

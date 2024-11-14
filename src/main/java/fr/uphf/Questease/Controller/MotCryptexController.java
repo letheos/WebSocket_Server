@@ -40,7 +40,7 @@ public class MotCryptexController {
     }
 
     /**
-     * Méthode get permettant de récupérer in mot aléatoire de la base de donnée
+     * Méthode get permettant de récupérer un mot aléatoire de la base de donnée
      * @return Un mot aléatoire de la base de donnée
      */
     @GetMapping("/random")

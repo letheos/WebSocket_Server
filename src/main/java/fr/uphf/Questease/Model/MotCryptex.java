@@ -36,18 +36,34 @@ public class MotCryptex {
     @JoinColumn(name = "idindice", referencedColumnName = "idindice")
     private Indice indice;
 
+    /**
+     * Le getter de l'id d'un mot du cryptex
+     * @return L'id d'un mot du cryptex
+     */
     public Long getId() {
         return id;
     }
 
+    /**
+     * Le getter du texte d'un mot du cryptex
+     * @return Le texte d'un mot du cryptex
+     */
     public String getMot() {
         return mot;
     }
 
+    /**
+     * TODO
+     * @return
+     */
     public int getDiff() {
         return diff;
     }
 
+    /**
+     * Le getter de l'indice lié au mot du cryptex
+     * @return L'indice lié au mot du cryptex
+     */
     public Indice getIndice() {
         return indice;
     }

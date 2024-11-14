@@ -54,7 +54,6 @@ public class ChoseATrouverPrixJuste {
         this.valeur = valeur;
     }
 
-
     /**
      * Le getter du nom de l'élément
      * @return Le nom de l'élément

@@ -16,8 +16,15 @@ import java.util.Optional;
 @RequestMapping("/resultat")
 public class ResultatController {
 
+    /**
+     * Implémentation du service permettant d'accéder au repositoire
+     */
     private final ResultatServiceImpl repo;
 
+    /**
+     * Constructeur de la classe RésultatController
+     * @param repo Le repositoire de la classe
+     */
     public ResultatController(ResultatServiceImpl repo) {
         this.repo = repo;
     }

@@ -64,32 +64,32 @@ public class Resultat {
     }
 
     /**
-     * TODO
-     * @return
+     * Méthode Getter renvoyant le booléan correspondant à une victoire sur le cryptex ou non
+     * @return Un booléan correspondant à une victoire sur le cryptex ou non
      */
     public boolean isCryptex() {
         return isCryptex;
     }
 
     /**
-     * TODO
-     * @return
+     * Méthode Getter renvoyant le booléan correspondant à une victoire sur le pendu ou non
+     * @return Un booléan correspondant à une victoire sur le pendu ou non
      */
     public boolean isPendu() {
         return isPendu;
     }
 
     /**
-     * TODO
-     * @return
+     * Méthode Getter renvoyant le booléan correspondant à une victoire sur le jeu du son ou non
+     * @return Un booléan correspondant à une victoire sur le jeu du son ou non
      */
     public boolean isSon() {
         return isSon;
     }
 
     /**
-     * TODO
-     * @return
+     * Méthode Getter renvoyant le booléan correspondant à une victoire sur le cryptex ou non
+     * @return Un booléan correspondant à une victoire sur le prix juste ou non
      */
     public boolean isIsprixjuste() {
         return isprixjuste;
@@ -104,8 +104,8 @@ public class Resultat {
     }
 
     /**
-     * TODO
-     * @return
+     * Le getter du booléan lié à une victoire ou non de la partie
+     * @return Le booléan lié à une victoire ou non de la partie
      */
     public boolean isTresor() {
         return isTresor;
@@ -113,7 +113,7 @@ public class Resultat {
 
     /**
      * Le setter du trésor de la partie
-     * @param tresor
+     * @param tresor Le trésor de la partie
      */
     public void setTresor(boolean tresor) {
         isTresor = tresor;

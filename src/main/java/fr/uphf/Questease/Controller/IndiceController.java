@@ -38,6 +38,10 @@ public class IndiceController {
         return repo.FetchIndice(idIndice);
     }
 
+    /**
+     * Méthode Get permettant de récupérer tout les indices
+     * @return Une liste contenant tout les indices
+     */
     @GetMapping("")
     public List<Indice> getAllIndices() {
         return repo.FetchIndiceList();

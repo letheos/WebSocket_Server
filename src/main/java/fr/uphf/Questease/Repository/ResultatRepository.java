@@ -18,7 +18,7 @@ public interface ResultatRepository extends CrudRepository<Resultat, Long> {
 
 
     /**
-     * Requête permettant d'ajouter les résultats d'un utilisateur
+     * Requête permettant de récupérer les résultats d'un utilisateur via son nom
      * @param IT Le booléan représentant si l'utilisateur a battu le jeu où non
      * @param IE1 Le booléan représentant si l'utilisateur a battu le mini-jeu TODO
      * @param IE2 Le booléan représentant si l'utilisateur a battu le jeu TODO

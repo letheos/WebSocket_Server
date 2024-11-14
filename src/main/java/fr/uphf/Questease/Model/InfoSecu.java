@@ -29,6 +29,9 @@ public class InfoSecu {
     @Column(name = "email", nullable = false)
     private String email;
 
+    /**
+     * Lien vers les informations générales de l'utilisateur
+     */
     @OneToOne
     @JoinColumn(name = "idutilisateur", referencedColumnName = "idutilisateur")
     private Utilisateur utilisateur;

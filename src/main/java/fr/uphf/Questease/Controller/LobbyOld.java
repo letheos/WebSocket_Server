@@ -1,21 +1,21 @@
 package fr.uphf.Questease.Controller;
 
-import fr.uphf.Questease.Model.Utilisateur;
+import fr.uphf.Questease.Model.JoueurTmp;
 
-public class Lobby extends Thread{
-    private Utilisateur user1 = null;
+public class LobbyOld extends Thread{
+    private JoueurTmp user1 = null;
     private boolean estPretUser1 = false;
-    private Utilisateur user2 = null;
+    private JoueurTmp user2 = null;
     private boolean estPretUser2 = false;
 
-    public Lobby(){
+    public LobbyOld(){
 
     }
-    public Lobby(Utilisateur user1){
+    public LobbyOld(JoueurTmp user1){
         this.user1 = user1;
     }
 
-    public void Connexion(Utilisateur user){
+    public void Connexion(JoueurTmp user){
         //verifier la connexion
 
     }
@@ -28,7 +28,7 @@ public class Lobby extends Thread{
         return this.user1 != null && this.user2 != null;
     }
 
-    public void RendrePret(Utilisateur user){
+    public void RendrePret(JoueurTmp user){
         if(user == this.user1){
             this.estPretUser1 = true;
         } else if(user == this.user2){

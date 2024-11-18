@@ -33,7 +33,7 @@ public class InfoSecu {
      * Lien vers les informations générales de l'utilisateur
      */
     @OneToOne
-    @JoinColumn(name = "idutilisateur", referencedColumnName = "idutilisateur")
+    @JoinColumn(name = "idJoueur", referencedColumnName = "idJoueur")
     private JoueurTmp joueurTmp;
 
 

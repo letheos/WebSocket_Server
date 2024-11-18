@@ -1,6 +1,7 @@
 package fr.uphf.Questease.Controller;
 
 
+import fr.uphf.Questease.Model.Indice;
 import fr.uphf.Questease.Model.MotCryptex;
 import fr.uphf.Questease.Repository.MotCryptexRepository;
 import fr.uphf.Questease.Service.MotCryptexServiceImpl;
@@ -46,7 +47,7 @@ public class MotCryptexController {
     @GetMapping("/random")
     public MotCryptex getRandomWord(){
         List<MotCryptex> liste = repo.FetchMotCryptexList();
-        return liste.get((int) (Math.random() * ((liste.size()) + 1)));
+        return liste.get((int) (Math.random() * ((liste.size()))));
     }
 
     /**
@@ -73,7 +74,7 @@ public class MotCryptexController {
      * Méthode Delete permettant de supprimer un mot de la base de donnée
      * @param M Le mot qui sera supprimé de la base de donnée
      */
-    @DeleteMapping("/{idMoCryptex}")
+    @DeleteMapping("/{idMotCryptex}")
     public void DeleteMot(@PathVariable MotCryptex M) {
         repo.deleteMotCryptex(M.getId());
     }
@@ -83,5 +84,10 @@ public class MotCryptexController {
 
     @PostMapping("")
     public List<MotCryptex> getMotCryptexPost() {return repo.FetchMotCryptexList();}
+
+    @GetMapping("/indice/{idMotCryptex}")
+    public Indice GetIndoce(@PathVariable Long idMotCryptex) {
+        return repo.GetIndiceWithId(idMotCryptex);
+    }
 
 }

@@ -75,4 +75,9 @@ public class IndiceController {
     public void DeleteinfoSecu(@PathVariable Indice I) {
         repo.deleteIndice(I.getId());
     }
+
+    @GetMapping("/{idIndice}")
+    public Indice GetIndice(@PathVariable Long idIndice) {
+        return repo.FetchIndice(idIndice).get();
+    }
 }

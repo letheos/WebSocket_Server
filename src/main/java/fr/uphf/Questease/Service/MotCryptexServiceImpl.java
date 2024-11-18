@@ -1,5 +1,6 @@
 package fr.uphf.Questease.Service;
 
+import fr.uphf.Questease.Model.Indice;
 import fr.uphf.Questease.Model.MotCryptex;
 import fr.uphf.Questease.Repository.MotCryptexRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,5 +38,10 @@ public class MotCryptexServiceImpl implements MotCryptexService {
     @Override
     public void deleteMotCryptex(Long motCryptexId) {
         repo.deleteById(motCryptexId);
+    }
+
+    @Override
+    public Indice GetIndiceWithId(Long motCryptexId) {
+        return repo.GetIndiceWithId().get(0);
     }
 }

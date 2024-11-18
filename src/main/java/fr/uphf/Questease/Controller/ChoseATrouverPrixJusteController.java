@@ -69,7 +69,7 @@ public class ChoseATrouverPrixJusteController {
     @GetMapping("/random")
     public ChoseATrouverPrixJuste GetRandomChose() {
         List<ChoseATrouverPrixJuste> liste = repo.FetchChoseList();
-        return liste.get((int) (Math.random() * ((liste.size()) + 1)));
+        return liste.get((int) (Math.random() * ((liste.size()))));
     }
 
     @GetMapping("")

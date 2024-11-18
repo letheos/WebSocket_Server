@@ -1,33 +1,34 @@
 package fr.uphf.Questease.Model;
 
 import jakarta.persistence.*;
-import java.util.Set;
-import fr.uphf.Questease.Model.Lobby;
 
-/**
- * Représente l'utilisateur qui jour aux différents jeux
- */
 @Entity
 @Table(name = "JoueurTmp")
 public class JoueurTmp {
-
     /**
      * L'id de l'utilisateur
      */
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idJoueur")
     private Long id;
-
     /**
      * Le pseudonyme de l'utilisateur
      */
-    @Column(name = "pseudo",nullable = false, unique = true)
+    @Column(name = "pseudo", nullable = false, unique = true)
     private String pseudo;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idLobby", referencedColumnName = "idLobby")
+    @ManyToOne
+    @JoinColumn(name = "idLobby")
     private Lobby lobby;
+
+    // Constructeur avec pseudonyme
+    public JoueurTmp(String pseudo) {
+        this.pseudo = pseudo;
+    }
+
+    // Constructeur par défaut
+    public JoueurTmp() {}
 
     /**
      * Le getter de l'id de l'utilisateur
@@ -36,7 +37,6 @@ public class JoueurTmp {
     public Long getId() {
         return id;
     }
-
     /**
      * Le setter de l'id de l'utilisateur
      * @param id L'id de l'utilisateur
@@ -47,5 +47,17 @@ public class JoueurTmp {
 
     public String getPseudo() {
         return pseudo;
+    }
+
+    public void setPseudo(String pseudo) {
+        this.pseudo = pseudo;
+    }
+
+    public Lobby getLobby() {
+        return lobby;
+    }
+
+    public void setLobby(Lobby lobby) {
+        this.lobby = lobby;
     }
 }

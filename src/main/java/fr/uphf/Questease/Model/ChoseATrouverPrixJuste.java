@@ -26,7 +26,7 @@ public class ChoseATrouverPrixJuste {
     /**
      * Le path vers l'image de l'élément
      */
-    @Column(name = "pathtopicture", nullable = false)
+    @Column(name = "idpicture", nullable = false)
     private String cheminImage;
 
     /**

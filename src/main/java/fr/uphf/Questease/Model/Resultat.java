@@ -51,7 +51,7 @@ public class Resultat {
      * L'utilisateur auquel sont lié les résultats
      */
     @ManyToOne
-    @JoinColumn(name = "idutilisateur", referencedColumnName = "idutilisateur")  // Clé étrangère vers "utilisateur"
+    @JoinColumn(name = "idutilisateur", referencedColumnName = "idJoueur")  // Clé étrangère vers "utilisateur"
     private JoueurTmp joueurTmp;
 
     /**

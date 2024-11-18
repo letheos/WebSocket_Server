@@ -6,7 +6,7 @@ import jakarta.persistence.*;
  * Représente le mot à trouver lors du jeu du Cryptex
  */
 @Entity
-@Table(name = "motCryptex")
+@Table(name = "mot_cryptex")
 public class MotCryptex {
 
     /**
@@ -14,7 +14,7 @@ public class MotCryptex {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "idMotCryptex")
+    @Column(name = "id_mot_cryptex")
     private Long id;
 
     /**
@@ -33,7 +33,7 @@ public class MotCryptex {
      * L'indice lié au mot à trouver lors du Cryptex
      */
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idindice", referencedColumnName = "idindice")
+    @JoinColumn(name = "id_indice", referencedColumnName = "idindice")
     private Indice indice;
 
     /**

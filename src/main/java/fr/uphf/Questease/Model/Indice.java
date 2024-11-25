@@ -26,10 +26,8 @@ public class Indice {
 
     /**
      * Le mot caché par cet indice
-     */
-    @Column(name = "motcache",nullable=false)
-    private String motcache;
-    /**
+     
+
      * La liste d'indices pour le Cryptex
      */
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "indice", cascade = CascadeType.ALL)

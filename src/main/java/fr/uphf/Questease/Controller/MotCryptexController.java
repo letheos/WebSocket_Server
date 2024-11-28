@@ -32,12 +32,12 @@ public class MotCryptexController {
 
     /**
      * Méthode Get permettant de récupérer un mot via son id
-     * @param idMotCryptex L'id du mot récupéré
+     * @param id L'id du mot récupéré
      * @return Le mot récupéré
      */
-    @GetMapping("/idMotCryptex")
-    public Optional<MotCryptex> getMotById(@PathVariable Long idMotCryptex) {
-        return repo.FetchMotCryptex(idMotCryptex);
+    @GetMapping("/{id}")
+    public Optional<MotCryptex> getMotById(@PathVariable Long id) {
+        return repo.FetchMotCryptex(id);
     }
 
     /**
@@ -88,6 +88,34 @@ public class MotCryptexController {
     @GetMapping("/indice/{idMotCryptex}")
     public Indice GetIndoce(@PathVariable Long idMotCryptex) {
         return repo.GetIndiceWithId(idMotCryptex);
+    }
+
+    /**
+     * Méthode GET permettant d'ajouter un mot à la base de données via des paramètres
+     * @param mot Le mot à ajouter
+     * @param diff La difficulté associée au mot
+     * @param idIndice L'id de l'indice associé
+     * @return Le mot ajouté
+     */
+    @GetMapping("/add")
+    public MotCryptex addMotCryptex(
+            @RequestParam String mot,
+            @RequestParam int diff,
+            @RequestParam(required = false) Long idIndice
+    ) {
+        // Création d'un objet MotCryptex
+        Indice associatedIndice = null;
+        if (idIndice != null) {
+            associatedIndice = repo.GetIndiceWithId(idIndice); // Assure que l'indice existe
+        }
+
+        MotCryptex newMotCryptex = new MotCryptex();
+        newMotCryptex.setMot(mot);
+        newMotCryptex.setDiff(diff);
+        newMotCryptex.setIndice(associatedIndice);
+
+        // Sauvegarde dans la base de données
+        return repo.SaveMotCryptex(newMotCryptex);
     }
 
 }

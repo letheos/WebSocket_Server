@@ -1,5 +1,6 @@
 package fr.uphf.Questease.Model;
 
+import fr.uphf.Questease.Controller.MotCryptexController;
 import jakarta.persistence.*;
 
 /**
@@ -8,6 +9,12 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "mot_cryptex")
 public class MotCryptex {
+    public MotCryptex(Long id, String mot, int diff, int Idindice){
+        this.id = id;
+        this.mot = mot;
+        this.diff = diff;
+        Idindice = Idindice;
+    }
 
     /**
      * L'id du mot à trouver lors du Cryptex
@@ -36,6 +43,10 @@ public class MotCryptex {
     @JoinColumn(name = "id_indice", referencedColumnName = "idindice")
     private Indice indice;
 
+    public MotCryptex() {
+
+    }
+
     /**
      * Le getter de l'id d'un mot du cryptex
      * @return L'id d'un mot du cryptex
@@ -43,6 +54,8 @@ public class MotCryptex {
     public Long getId() {
         return id;
     }
+
+
 
     /**
      * Le getter du texte d'un mot du cryptex
@@ -66,5 +79,21 @@ public class MotCryptex {
      */
     public Indice getIndice() {
         return indice;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setMot(String mot) {
+        this.mot = mot;
+    }
+
+    public void setDiff(int diff) {
+        this.diff = diff;
+    }
+
+    public void setIndice(Indice indice) {
+        this.indice = indice;
     }
 }

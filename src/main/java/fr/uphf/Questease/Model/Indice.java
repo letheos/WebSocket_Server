@@ -10,6 +10,11 @@ import java.util.List;
 @Entity
 public class Indice {
 
+    public Indice(long idIndice, String indice){
+        this.id = idIndice;
+        this.indice = indice;
+    }
+
     /**
      * L'id de l'indice
      */

@@ -1,5 +1,6 @@
 package fr.uphf.Questease.Model;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 
 /**
@@ -51,8 +52,8 @@ public class Resultat {
      * L'utilisateur auquel sont lié les résultats
      */
     @ManyToOne
-    @JoinColumn(name = "idutilisateur", referencedColumnName = "idJoueur")  // Clé étrangère vers "utilisateur"
-    private JoueurTmp joueurTmp;
+    @JoinColumn(name = "idutilisateur", referencedColumnName = "idutilisateur")  // Clé étrangère vers "utilisateur"
+    private Utilisateur utilisateur;
 
     /**
      * Le getter de l'id de la partie
@@ -63,32 +64,32 @@ public class Resultat {
     }
 
     /**
-     * Méthode Getter renvoyant le booléan correspondant à une victoire sur le cryptex ou non
-     * @return Un booléan correspondant à une victoire sur le cryptex ou non
+     * TODO
+     * @return
      */
     public boolean isCryptex() {
         return isCryptex;
     }
 
     /**
-     * Méthode Getter renvoyant le booléan correspondant à une victoire sur le pendu ou non
-     * @return Un booléan correspondant à une victoire sur le pendu ou non
+     * TODO
+     * @return
      */
     public boolean isPendu() {
         return isPendu;
     }
 
     /**
-     * Méthode Getter renvoyant le booléan correspondant à une victoire sur le jeu du son ou non
-     * @return Un booléan correspondant à une victoire sur le jeu du son ou non
+     * TODO
+     * @return
      */
     public boolean isSon() {
         return isSon;
     }
 
     /**
-     * Méthode Getter renvoyant le booléan correspondant à une victoire sur le cryptex ou non
-     * @return Un booléan correspondant à une victoire sur le prix juste ou non
+     * TODO
+     * @return
      */
     public boolean isIsprixjuste() {
         return isprixjuste;
@@ -98,13 +99,13 @@ public class Resultat {
      * Le getter de l'utilisateur lié à la partie
      * @return L'utilisateur lié à la partie
      */
-    public JoueurTmp getUtilisateur() {
-        return joueurTmp;
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
     }
 
     /**
-     * Le getter du booléan lié à une victoire ou non de la partie
-     * @return Le booléan lié à une victoire ou non de la partie
+     * TODO
+     * @return
      */
     public boolean isTresor() {
         return isTresor;
@@ -112,7 +113,7 @@ public class Resultat {
 
     /**
      * Le setter du trésor de la partie
-     * @param tresor Le trésor de la partie
+     * @param tresor
      */
     public void setTresor(boolean tresor) {
         isTresor = tresor;

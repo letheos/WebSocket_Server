@@ -6,6 +6,7 @@ import fr.uphf.Questease.Service.ChoseATrouverPrixJusteServiceImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -21,9 +22,9 @@ public class ChoseATrouverPrixJusteController {
         this.repo = repo;
     }
 
-    @GetMapping("/{idChoseATrouver}")
-    public ResponseEntity<Optional<ChoseATrouverPrixJuste>> GetChoseById(@PathVariable Long idChoseATrouver) {
-        return ResponseEntity.ok(repo.ReadChose(idChoseATrouver));
+    @GetMapping("/{id}")
+    public ResponseEntity<Optional<ChoseATrouverPrixJuste>> GetChoseById(@PathVariable Long id) {
+        return ResponseEntity.ok(repo.ReadChose(id));
     }
 
     @PostMapping("/{idChoseATrouver}")
@@ -39,6 +40,11 @@ public class ChoseATrouverPrixJusteController {
     @DeleteMapping("/{idChoseATrouver}")
     public void DeleteChose(@PathVariable Long idChoseATrouver) {
         repo.DeleteChose(idChoseATrouver);
+    }
+
+    @GetMapping("")
+    public List<ChoseATrouverPrixJuste> getALL(){
+        return repo.FetchChoseList();
     }
 }
 
